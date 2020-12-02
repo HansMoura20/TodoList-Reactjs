@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import uuid from 'react-uuid'
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
 import Typography from "@material-ui/core/Typography";
@@ -21,7 +22,8 @@ const TodoApp = () => {
   //This function will add new todo item to the existing array
   //This function will be used as props in the TodoForm component
   const addTodo = (newTodoText) => {
-    setTodos([...todos, {id: 4, task: newTodoText, completed: false}])
+    //The "uuid()" generate unique id key for each array element
+    setTodos([...todos, {id: uuid(), task: newTodoText, completed: false}])
   };
 
   const removeTodo = (todoId) => {
