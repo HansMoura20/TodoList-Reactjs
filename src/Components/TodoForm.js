@@ -4,9 +4,10 @@ import Paper from "@material-ui/core/Paper";
 import useInputState from "./Hooks/useInputState";
 
 const TodoForm = (props) => {
+  const [value, handleChange, reset] = useInputState("");
   return (
     <Paper>
-      <TextField />
+      <TextField value={value} onChange={handleChange} />
     </Paper>
   )
 }
