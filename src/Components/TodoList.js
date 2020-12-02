@@ -10,7 +10,7 @@ const TodoList = ({todos, removeTodo, toggleTodo, editTodo}) => {
     <Paper>
       <List>
         {/* Map Throught the todos array */}
-        {todos.map(todo => (
+        {todos.map((todo, i) => (
           <>
             <Todo 
               id={todo.id}
@@ -21,7 +21,7 @@ const TodoList = ({todos, removeTodo, toggleTodo, editTodo}) => {
               toggleTodo={toggleTodo}
               editTodo={editTodo}
             />
-            <Divider />
+            {i < todos.length - 1 && <Divider />}
           </>
           ))}
       </List>

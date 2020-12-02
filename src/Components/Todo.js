@@ -14,7 +14,7 @@ const Todos = ({ id, task, completed, removeTodo, toggleTodo, editTodo }) => {
   //Hooks for editing
   const [isEditing, toggle] = useToggleState();
   return (
-    <ListItem>
+    <ListItem style={{height: "64px"}}>
       {isEditing ? (
         <EditTodoForm editTodo={editTodo} id={id} task={task} toggleEditForm={toggle}/>
       ) : (
