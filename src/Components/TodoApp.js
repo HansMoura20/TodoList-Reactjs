@@ -17,8 +17,14 @@ const TodoApp = () => {
     { id: 3, task: "Grow Beard", completed: false} 
   ];
 
-  //Creates the hooks
+  //Creates the hooks to display the todos 
   const [todos, setTodos] = useState(initialTodos);
+
+  //This function will add new todo item to the existing array
+  //This function will be used as props in the TodoForm component
+  const addTodo = (newTodoText) => {
+    setTodos([...todos, {id: 4, task: newTodoText, completed: false}])
+  };
 
   return (
     // This "Paper" create the whole page
@@ -36,7 +42,7 @@ const TodoApp = () => {
           <Typography color="inherit">TODOS WITH HOOKS</Typography>
         </Toolbar>
       </AppBar>
-      <TodoForm/>
+      <TodoForm addTodo={addTodo}/>
       
       {/* 1. Passing props to the "TodoList component" */}
       <TodoList todos={todos}/>
