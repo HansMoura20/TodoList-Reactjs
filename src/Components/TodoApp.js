@@ -21,11 +21,13 @@ const TodoApp = () => {
 
   //This function will add new todo item to the existing array
   //This function will be used as props in the TodoForm component
+  //****Add todo function***
   const addTodo = (newTodoText) => {
     //The "uuid()" generate unique id key for each array element
     setTodos([...todos, {id: uuid(), task: newTodoText, completed: false}])
   };
 
+  //***removeTodo function***
   const removeTodo = (todoId) => {
     //filter out removed todo
     const updatedTodos = todos.filter(todo => todo.id !== todoId);
@@ -34,6 +36,22 @@ const TodoApp = () => {
     setTodos(updatedTodos);
   }
 
+  //***toggleTodo function***
+  //This function will toggle the Todo when clicked on the checkbox
+  const toggleTodo = (todoId) => {
+    const updatedTodos = todos.map(todo => 
+        todo.id === todoId ? {...todo, completed: !todo.completed} : todo
+      );
+      setTodos(updatedTodos);
+  };
+
+  //***Edit todo function***
+  const editTodo = (todoId, newTask) => {
+    const updatedTodos = todos.map(todo => 
+      todo.id === todoId ? {...todo, task : newTask} : todo
+    );
+    setTodos(updatedTodos);
+  }
   return (
     // This "Paper" create the whole page
     <Paper style={{
@@ -55,7 +73,12 @@ const TodoApp = () => {
           <TodoForm addTodo={addTodo}/>
           
           {/* 1. Passing props to the "TodoList component" */}
-          <TodoList todos={todos} removeTodo={removeTodo}/>
+          <TodoList 
+            todos={todos} 
+            removeTodo={removeTodo} 
+            toggleTodo={toggleTodo}
+            editTodo={editTodo}
+          />
         </Grid>
       </Grid>
     </Paper>
