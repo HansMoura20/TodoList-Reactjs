@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
+import TodoList from './TodoList';
 
 const TodoApp = () => {
   //This is some default values arrays for the useState
@@ -27,11 +28,12 @@ const TodoApp = () => {
     elevation={0}
     >
     {/* This is the top bar on the page */}
-    <AppBar color='primary' position='static' style={{height: "64px"}}>
-      <Toolbar>
-        <Typography color="inherit">TODOS WITH HOOKS</Typography>
-      </Toolbar>
-    </AppBar>
+      <AppBar color='primary' position='static' style={{height: "64px"}}>
+        <Toolbar>
+          <Typography color="inherit">TODOS WITH HOOKS</Typography>
+        </Toolbar>
+      </AppBar>
+      <TodoList todos={todos}/>
     </Paper>
   )
 }
