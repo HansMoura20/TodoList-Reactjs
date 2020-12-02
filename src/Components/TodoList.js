@@ -9,16 +9,17 @@ const TodoList = (props) => {
   return (
     <Paper>
       <List>
+        {/* Map Throught the todos array */}
         {props.todos.map(todo => (
           <>
             <ListItem>
+              {/* Retrieve the task from the todos array and display it */}
               <ListItemText>{todo.task}</ListItemText>
             </ListItem>
             <Divider />
           </>
           ))}
       </List>
-      
     </Paper>
   )
 }
