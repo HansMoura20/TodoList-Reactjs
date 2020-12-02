@@ -24,6 +24,14 @@ const TodoApp = () => {
     setTodos([...todos, {id: 4, task: newTodoText, completed: false}])
   };
 
+  const removeTodo = (todoId) => {
+    //filter out removed todo
+    const updatedTodos = todos.filter(todo => todo.id !== todoId);
+
+    //call setTodos with new todos array
+    setTodos(updatedTodos);
+  }
+
   return (
     // This "Paper" create the whole page
     <Paper style={{
@@ -45,7 +53,7 @@ const TodoApp = () => {
           <TodoForm addTodo={addTodo}/>
           
           {/* 1. Passing props to the "TodoList component" */}
-          <TodoList todos={todos}/>
+          <TodoList todos={todos} removeTodo={removeTodo}/>
         </Grid>
       </Grid>
     </Paper>
