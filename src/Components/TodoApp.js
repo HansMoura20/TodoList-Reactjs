@@ -7,8 +7,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
 
-
-
 const TodoApp = () => {
   //This is some default values arrays for the useState
   const initialTodos = [
@@ -42,10 +40,14 @@ const TodoApp = () => {
           <Typography color="inherit">TODOS WITH HOOKS</Typography>
         </Toolbar>
       </AppBar>
-      <TodoForm addTodo={addTodo}/>
-      
-      {/* 1. Passing props to the "TodoList component" */}
-      <TodoList todos={todos}/>
+      <Grid container justify="center" style={{marginTop: "1rem"}}>
+        <Grid item xs={11} md={8} lg={4}>
+          <TodoForm addTodo={addTodo}/>
+          
+          {/* 1. Passing props to the "TodoList component" */}
+          <TodoList todos={todos}/>
+        </Grid>
+      </Grid>
     </Paper>
   )
 }
